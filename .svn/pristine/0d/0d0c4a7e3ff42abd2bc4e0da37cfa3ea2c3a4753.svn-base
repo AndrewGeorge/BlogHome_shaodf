@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.bloghome_shaodf"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="17" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity android:name="com.example.bloghome_shaodf.WelcomActivity" >
+           
+        </activity>
+        <activity 
+             android:name="com.example.bloghome_shaodf.login.Date">
+             <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            
+        </activity>
+        <activity
+            android:name="com.example.bloghome_shaodf.MainActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity android:name="com.example.bloghome_shaodf.login.LoginActivity" >
+        </activity>
+        <activity android:name="com.example.bloghome_shaodf.collect.MarkActivity" >
+        </activity>
+        <activity android:name="com.example.bloghome_shaodf.collect.OfflineActivity" >
+        </activity>
+        <activity android:name="com.example.bloghome_shaodf.news.ShowNewsActivity" >
+        </activity>
+        <activity android:name="com.example.bloghome_shaodf.news.NewsContnetActivity" >
+        </activity>
+        <activity android:name="com.example.bloghome_shaodf.tools.SearchActivity" >
+        </activity>
+        <activity android:name="com.example.bloghome_shaodf.tools.SearchBlogAct" >
+        </activity>
+        <activity android:name="com.example.bloghome_shaodf.tools.SetActivity" >
+        </activity>
+        <activity android:name="com.example.bloghome_shaodf.blog.Blog_Main_Activity" >
+        </activity>
+        <activity android:name="com.example.bloghome_shaodf.blog.Blog_Comments_Activity" >
+        </activity>
+        <activity android:name="com.example.bloghome_shaodf.blog.Blog_Content_Activity" >
+        </activity>
+        <activity android:name="com.example.bloghome_shaodf.blog.Search_Blogerpage_Activity" >
+        </activity>
+        <activity android:name="com.example.bloghome_shaodf.news.CommentsActivity" >
+        </activity>
+        <activity android:name="com.example.bloghome_shaodf.blog.Blog_10_Activity" >
+        </activity>
+        <activity android:name="com.example.bloghome_shaodf.blog.Blog_48_Activity" >
+        </activity>
+    </application>
+
+</manifest>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="list_item_title">#1c559a</color>
+    <color name="list_item_auther">#fb8924</color>
+    <color name="list_item_other">#49812e</color>
+    <color name="blog_title_bg">#af181f</color>
+    <color name="bloger_panel_bg">#aaaf181f</color>
+    <color name="bloger_blog_list_bg">#495b69</color>
+    <color name="refresh">#aaffffff</color>
+    <color name="page_back">#fff2f2f2</color>
+    <color name="logo_text_color">#ff7f7f7f</color>
+    <color name="white">#ffffffff</color>
+    <color name="login_with_other_plat_text_color">#ff383838</color>
+
+</resources>

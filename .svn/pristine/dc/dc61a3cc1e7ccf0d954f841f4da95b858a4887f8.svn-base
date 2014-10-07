@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white" >
+
+    <RelativeLayout
+        android:id="@+id/blog"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bloger_blog_list_bg"
+        android:padding="10.0dip"
+        android:visibility="visible" >
+
+        <ImageView
+            android:id="@+id/blog_blogerImg"
+            android:layout_width="60.0dip"
+            android:layout_height="60.0dip"
+            android:layout_marginLeft="3.0dip"
+            android:layout_marginTop="10.0dip"
+            android:src="@drawable/ic_launcher" />
+
+        <TextView
+            android:id="@+id/blog_blogerName"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10.0dip"
+            android:layout_marginTop="5.0dip"
+            android:layout_toRightOf="@id/blog_blogerImg"
+            android:hint="blog_blogerName"
+            android:singleLine="true"
+            android:textSize="20.0sp" />
+
+        <TextView
+            android:id="@+id/blog_blogCount"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/blog_blogerImg"
+            android:layout_below="@id/blog_blogerName"
+            android:layout_marginLeft="70.0dip"
+            android:layout_marginTop="2.0dip"
+            android:layout_toRightOf="@id/blog_blogerImg"
+            android:hint="blogerCount"
+            android:textSize="20.0sp" />
+    </RelativeLayout>
+
+    <com.cnblog.listview.PullToRefreshListView
+        android:id="@+id/blog_blogshow"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/blog"
+        android:cacheColorHint="#ffffffff"
+        android:divider="@null" />
+
+    <TextView
+        android:id="@+id/blogNull"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/blog"
+        android:layout_marginTop="50.0dip"
+        android:gravity="center_horizontal"
+        android:text="此博主还未发表任何博文"
+        android:textSize="20.0sp"
+        android:visibility="invisible" />
+
+    <ProgressBar
+        android:id="@+id/blog_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/blog"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="140.0dip"
+        android:visibility="gone" />
+
+</RelativeLayout>

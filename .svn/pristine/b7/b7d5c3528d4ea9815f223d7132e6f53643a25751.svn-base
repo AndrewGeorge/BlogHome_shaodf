@@ -1,0 +1,103 @@
+package com.example.bloghome_shaodf.news;
+
+import java.util.List;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.bloghome_shaodf.PublicData;
+import com.example.bloghome_shaodf.R;
+
+public class CommentsActivity extends Activity {
+
+	
+	List<Comments> entrylist;
+	TextView no_comments;
+	TextView hotnewscomments_title;
+	ListView comments_listview;
+	String id;
+	public final int DownLaodOver=0;
+	
+	Handler handler=new Handler(){
+		
+		public void handleMessage(android.os.Message msg) {
+			
+			if (msg.what==DownLaodOver) {
+				
+				if (entrylist.size()==0) {
+					
+					no_comments.setVisibility(View.VISIBLE);
+					
+				}else{
+					
+					
+					CommentsAdapter adapter=new CommentsAdapter(CommentsActivity.this, entrylist);
+					comments_listview.setAdapter(adapter);
+				}
+				
+				
+			
+			
+			
+			Toast.makeText(CommentsActivity.this, "下载完毕", 0).show();
+			}
+			
+			
+		};
+	};
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		 //设置无标题  
+        requestWindowFeature(Window.FEATURE_NO_TITLE);  
+        //设置全屏  
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,   
+                WindowManager.LayoutParams.FLAG_FULLSCREEN); 
+		setContentView(R.layout.comments_activity);
+		 SetView();
+		 new DLondComments().start();
+		
+		 
+	}
+	
+	
+	//初始化数据据
+	private void SetView() {
+
+		Intent intent=getIntent();
+		id=intent.getStringExtra("ID");
+		hotnewscomments_title=(TextView) findViewById(R.id.comments_list_item_title);
+		hotnewscomments_title.setText(intent.getStringExtra("title"));
+		no_comments=(TextView) findViewById(R.id.no_comments);
+		comments_listview=(ListView) findViewById(R.id.comments_listview);
+				
+	}
+	
+	
+	public class DLondComments extends Thread{
+		
+		@Override
+		public void run() {
+			
+			String path=PublicData.hotNewsCommentsPath.replace("POSTID", id).replace("PAGEINDEX", "1").replace("PAGESIZE", "10");
+			DownLoadComments dlComments=new DownLoadComments(path);
+			entrylist=dlComments.getMessage();
+			handler.sendEmptyMessage(DownLaodOver);
+			super.run();
+		}
+	}
+	
+}
+
+
+
